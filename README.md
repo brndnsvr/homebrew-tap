@@ -1,12 +1,24 @@
 # Homebrew Tap
 
-Personal Homebrew tap for macOS applications.
+Personal Homebrew tap for macOS tools and applications.
 
 ## Installation
 
 ```bash
 brew tap brndnsvr/tap
 ```
+
+## Available Formulae
+
+### sysm
+
+Unified CLI for Apple ecosystem integration on macOS.
+
+```bash
+brew install sysm
+```
+
+[More info](https://github.com/brndnsvr/sysm)
 
 ## Available Casks
 
