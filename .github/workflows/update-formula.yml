@@ -18,7 +18,7 @@ jobs:
           VERSION: ${{ github.event.client_payload.version }}
           SHA256: ${{ github.event.client_payload.sha256 }}
         run: |
-          sed -i "s|url \"https://github.com/brndnsvr/sysm/archive/v.*\.tar\.gz\"|url \"https://github.com/brndnsvr/sysm/archive/v${VERSION}.tar.gz\"|" Formula/sysm.rb
+          sed -i "s|url \"https://github.com/brndnsvr/sysm/releases/download/v.*/sysm-.*-macos-arm64\.tar\.gz\"|url \"https://github.com/brndnsvr/sysm/releases/download/v${VERSION}/sysm-${VERSION}-macos-arm64.tar.gz\"|" Formula/sysm.rb
           sed -i "s|sha256 \".*\"|sha256 \"${SHA256}\"|" Formula/sysm.rb
 
           echo "Updated formula to v${VERSION}"
