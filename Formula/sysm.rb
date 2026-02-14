@@ -9,6 +9,7 @@ class Sysm < Formula
   depends_on :macos
 
   def install
+    system "./scripts/generate-version.sh"
     system "swift", "build",
            "--disable-sandbox",
            "-c", "release",
