@@ -1,22 +1,15 @@
 class Sysm < Formula
   desc "Unified CLI for Apple ecosystem integration on macOS"
   homepage "https://github.com/brndnsvr/sysm"
-  url "https://github.com/brndnsvr/sysm/archive/v1.2.8.tar.gz"
-  sha256 "b7a3e844b1734836f48764033106839d726cfac2a19b05ccee578e53df1a236a"
+  url "https://github.com/brndnsvr/sysm/releases/download/v1.2.8/sysm-1.2.8-macos-arm64.tar.gz"
+  sha256 "PLACEHOLDER"
   license "MIT"
 
-  depends_on xcode: ["15.0", :build]
   depends_on :macos
+  depends_on arch: :arm64
 
   def install
-    system "./scripts/generate-version.sh"
-    system "swift", "build",
-           "--disable-sandbox",
-           "-c", "release",
-           "-Xswiftc", "-suppress-warnings"
-    bin.install ".build/release/sysm"
-
-    # Generate and install shell completions
+    bin.install "sysm"
     generate_completions_from_executable(bin/"sysm", "--generate-completion-script")
   end
 
