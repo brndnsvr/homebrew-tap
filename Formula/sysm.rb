@@ -1,9 +1,9 @@
 class Sysm < Formula
   desc "Unified CLI for Apple ecosystem integration on macOS"
   homepage "https://github.com/brndnsvr/sysm"
-  version "1.9.0"
-  url "https://github.com/brndnsvr/sysm/releases/download/v1.9.0/sysm-1.9.0-macos-arm64.tar.gz"
-  sha256 "71562f888491619b3e49b7d69ba858a926a2a48f4279fb88da7e36c9aecfd87e"
+  version "1.10.0"
+  url "https://github.com/brndnsvr/sysm/releases/download/v1.10.0/sysm-1.10.0-macos-arm64.tar.gz"
+  sha256 "7459a73fd17c8b5e0abdd8d77e2f3531cd8e72c5198298295411af7ac3d66bd5"
   license "MIT"
 
   depends_on :macos
