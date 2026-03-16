@@ -7,7 +7,7 @@ class Sysm < Formula
   homepage "https://github.com/brndnsvr/sysm"
   version "1.13.0"
   url "https://github.com/brndnsvr/sysm/releases/download/v1.13.0/sysm-1.13.0-macos-arm64.tar.gz"
-  sha256 "75c21f6e5a06b49de9eaf5241f4cef402ef1840243c24dace6205c2994fbd201"
+  sha256 "219e49eef2dad951a3fa237d6e1869583ed63921312d8b94117f50dcb87f4a74"
   license "MIT"
 
   depends_on :macos
@@ -15,7 +15,7 @@ class Sysm < Formula
 
   resource "claude-skill" do
     url "https://github.com/brndnsvr/sysm/releases/download/v1.12.1/sysm.skill"
-    sha256 "75c21f6e5a06b49de9eaf5241f4cef402ef1840243c24dace6205c2994fbd201"
+    sha256 "219e49eef2dad951a3fa237d6e1869583ed63921312d8b94117f50dcb87f4a74"
   end
 
   def install
