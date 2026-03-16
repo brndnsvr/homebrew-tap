@@ -15,13 +15,13 @@ class Sysm < Formula
 
   resource "claude-skill" do
     url "https://github.com/brndnsvr/sysm/releases/download/v1.12.1/sysm.skill"
-    sha256 "295b10e0cd49c6fb4140483c826c2bbf606f358b9d114f39b817a27fac57a883"
+    sha256 "1d672103aa88be95d7a1ac12d77d61425786ce7c0c927fd7f8fddb2f6e78ac5c"
   end
 
   def install
     bin.install "sysm"
     generate_completions_from_executable(bin/"sysm", "--generate-completion-script")
-    share("sysm").install resource("claude-skill") => "sysm.skill"
+    resource("claude-skill").stage { (share/"sysm").install "sysm.skill" }
   end
 
   test do
