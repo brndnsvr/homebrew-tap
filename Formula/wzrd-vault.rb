@@ -5,26 +5,26 @@
 class WzrdVault < Formula
   desc "Local-first secrets manager. Never leaks secrets to process arguments."
   homepage "https://github.com/brndnsvr/wzrd-vault"
-  version "0.2.0"
+  version "0.2.1"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/brndnsvr/wzrd-vault/releases/download/v0.2.0/wzrd-vault_0.2.0_darwin_arm64.tar.gz"
-      sha256 "a346f0bfccff4405999a40c6629031c5bddb0c05ff34201c4a25ca04bd167563"
+      url "https://github.com/brndnsvr/wzrd-vault/releases/download/v0.2.1/wzrd-vault_0.2.1_darwin_arm64.tar.gz"
+      sha256 "0229c6b7c1af035fa38e1b3ce2cc5ff5e4d0a52e0b7b5049aece6c9e0895875b"
     elsif Hardware::CPU.intel?
-      url "https://github.com/brndnsvr/wzrd-vault/releases/download/v0.2.0/wzrd-vault_0.2.0_darwin_amd64.tar.gz"
-      sha256 "afc4f794dbb10781a54189394daf5dc3ce5a08321102de9420d226e50f09ecca"
+      url "https://github.com/brndnsvr/wzrd-vault/releases/download/v0.2.1/wzrd-vault_0.2.1_darwin_amd64.tar.gz"
+      sha256 "464af21195768e9de2f8fa7699c367875427c0249cd003d59129494997bce23d"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/brndnsvr/wzrd-vault/releases/download/v0.2.0/wzrd-vault_0.2.0_linux_arm64.tar.gz"
-      sha256 "837e244c96f2e39df7f6cdd69402dd9e17909944e7a47f147d3aac7e5911b60d"
+      url "https://github.com/brndnsvr/wzrd-vault/releases/download/v0.2.1/wzrd-vault_0.2.1_linux_arm64.tar.gz"
+      sha256 "0fa7d9093d89a23816ed51e4c3f72a696e4d9a76f9bd85eb6035b621598a91b3"
     elsif Hardware::CPU.intel?
-      url "https://github.com/brndnsvr/wzrd-vault/releases/download/v0.2.0/wzrd-vault_0.2.0_linux_amd64.tar.gz"
-      sha256 "e1468c07b531765d4255f903e8bae0e328da97f5783cc19ad390d584dd64d16a"
+      url "https://github.com/brndnsvr/wzrd-vault/releases/download/v0.2.1/wzrd-vault_0.2.1_linux_amd64.tar.gz"
+      sha256 "7ae9854e2f5acc1464b7299288cfcb322b53d539f0841d34274b3d5184b46c31"
     end
   end
 
