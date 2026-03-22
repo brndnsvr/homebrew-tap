@@ -1,0 +1,74 @@
+name: Update wzrd-vault formula
+
+on:
+  repository_dispatch:
+    types: [wzrd-vault-release]
+
+permissions:
+  contents: write
+
+jobs:
+  update-formula:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download checksums and update formula
+        env:
+          VERSION: ${{ github.event.client_payload.version }}
+        run: |
+          # Download checksums from the release
+          curl -sL "https://github.com/brndnsvr/wzrd-vault/releases/download/v${VERSION}/checksums.txt" -o checksums.txt
+          cat checksums.txt
+
+          # Extract SHA256 for each platform
+          SHA_DARWIN_ARM64=$(grep "darwin_arm64" checksums.txt | awk '{print $1}')
+          SHA_DARWIN_AMD64=$(grep "darwin_amd64" checksums.txt | awk '{print $1}')
+          SHA_LINUX_ARM64=$(grep "linux_arm64" checksums.txt | awk '{print $1}')
+          SHA_LINUX_AMD64=$(grep "linux_amd64" checksums.txt | awk '{print $1}')
+
+          echo "darwin_arm64: ${SHA_DARWIN_ARM64}"
+          echo "darwin_amd64: ${SHA_DARWIN_AMD64}"
+          echo "linux_arm64:  ${SHA_LINUX_ARM64}"
+          echo "linux_amd64:  ${SHA_LINUX_AMD64}"
+
+          # Update version
+          sed -i "s|version \".*\"|version \"${VERSION}\"|" Formula/wzrd-vault.rb
+
+          # Update URLs and SHA256 for each platform
+          sed -i "s|wzrd-vault/releases/download/v[^/]*/wzrd-vault_[^_]*_darwin_arm64|wzrd-vault/releases/download/v${VERSION}/wzrd-vault_${VERSION}_darwin_arm64|" Formula/wzrd-vault.rb
+          sed -i "s|wzrd-vault/releases/download/v[^/]*/wzrd-vault_[^_]*_darwin_amd64|wzrd-vault/releases/download/v${VERSION}/wzrd-vault_${VERSION}_darwin_amd64|" Formula/wzrd-vault.rb
+          sed -i "s|wzrd-vault/releases/download/v[^/]*/wzrd-vault_[^_]*_linux_arm64|wzrd-vault/releases/download/v${VERSION}/wzrd-vault_${VERSION}_linux_arm64|" Formula/wzrd-vault.rb
+          sed -i "s|wzrd-vault/releases/download/v[^/]*/wzrd-vault_[^_]*_linux_amd64|wzrd-vault/releases/download/v${VERSION}/wzrd-vault_${VERSION}_linux_amd64|" Formula/wzrd-vault.rb
+
+          # Update SHA256 values (order matters - matches the formula structure)
+          # darwin_arm64 is the first sha256
+          python3 -c "
+          import re
+          with open('Formula/wzrd-vault.rb') as f:
+              content = f.read()
+          shas = ['${SHA_DARWIN_ARM64}', '${SHA_DARWIN_AMD64}', '${SHA_LINUX_ARM64}', '${SHA_LINUX_AMD64}']
+          i = 0
+          def replace_sha(m):
+              global i
+              result = f'sha256 \"{shas[i]}\"'
+              i += 1
+              return result
+          content = re.sub(r'sha256 \"[a-f0-9]+\"', replace_sha, content)
+          with open('Formula/wzrd-vault.rb', 'w') as f:
+              f.write(content)
+          "
+
+          echo "Updated formula:"
+          cat Formula/wzrd-vault.rb
+
+      - name: Commit and push
+        env:
+          VERSION: ${{ github.event.client_payload.version }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Formula/wzrd-vault.rb
+          git diff --staged --quiet && echo "No changes" && exit 0
+          git commit -m "Update wzrd-vault to v${VERSION}"
+          git push
