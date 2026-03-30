@@ -17,10 +17,35 @@ jobs:
         env:
           VERSION: ${{ github.event.client_payload.version }}
           SHA256: ${{ github.event.client_payload.sha256 }}
+          SKILL_SHA256: ${{ github.event.client_payload.skill_sha256 }}
         run: |
+          # Update version
           sed -i "s|version \".*\"|version \"${VERSION}\"|" Formula/sysm.rb
+
+          # Update binary URL and checksum (first url/sha256 pair)
           sed -i "s|url \"https://github.com/brndnsvr/sysm/releases/download/v.*/sysm-.*-macos-arm64\.tar\.gz\"|url \"https://github.com/brndnsvr/sysm/releases/download/v${VERSION}/sysm-${VERSION}-macos-arm64.tar.gz\"|" Formula/sysm.rb
-          sed -i "s|sha256 \".*\"|sha256 \"${SHA256}\"|" Formula/sysm.rb
+
+          # Update skill resource URL
+          sed -i "s|url \"https://github.com/brndnsvr/sysm/releases/download/v.*/sysm\.skill\"|url \"https://github.com/brndnsvr/sysm/releases/download/v${VERSION}/sysm.skill\"|" Formula/sysm.rb
+
+          # Use python to update sha256 values positionally (first = binary, second = skill)
+          python3 -c "
+          import re, sys
+          with open('Formula/sysm.rb') as f:
+              content = f.read()
+          shas = ['${SHA256}', '${SKILL_SHA256}']
+          idx = [0]
+          def replacer(m):
+              if idx[0] < len(shas) and shas[idx[0]]:
+                  result = f'sha256 \"{shas[idx[0]]}\"'
+              else:
+                  result = m.group(0)
+              idx[0] += 1
+              return result
+          content = re.sub(r'sha256 \"[a-f0-9]{64}\"', replacer, content)
+          with open('Formula/sysm.rb', 'w') as f:
+              f.write(content)
+          "
 
           echo "Updated formula to v${VERSION}"
           cat Formula/sysm.rb
