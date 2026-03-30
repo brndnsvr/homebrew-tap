@@ -7,7 +7,7 @@ class Sysm < Formula
   homepage "https://github.com/brndnsvr/sysm"
   version "1.13.1"
   url "https://github.com/brndnsvr/sysm/releases/download/v1.13.1/sysm-1.13.1-macos-arm64.tar.gz"
-  sha256 "cb4a3b07ec5b3b22f5b3b1acf78b55ba7c73f7f69917f5e492ad55cf4acfb686"
+  sha256 "2e00e34be3b72dd9ecda2935b94d301af0aae85e0a96ffe940f7dd68b563ddcf"
   license "MIT"
 
   depends_on :macos
