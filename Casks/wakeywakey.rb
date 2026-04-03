@@ -1,6 +1,6 @@
 cask "wakeywakey" do
-  version "1.1.0"
-  sha256 "e8a24b209876354243384c3bda2069f56ccaad020a9025a2e635c657ad81c1a4"
+  version "1.2.0"
+  sha256 "14e03dd443dbb89d0d0bdbb2507f8cf50ea2eb744693351e64a21f87679ab7e0"
 
   url "https://github.com/brndnsvr/WakeyWakey/releases/download/v#{version}/WakeyWakey-#{version}.dmg"
   name "WakeyWakey"
@@ -10,6 +10,7 @@ cask "wakeywakey" do
   depends_on macos: ">= :sequoia"
 
   app "WakeyWakey.app"
+  binary "WakeyWakey.app/Contents/MacOS/wakey"
 
   zap trash: [
     "~/Library/Preferences/com.brndnsvr.WakeyWakey.plist",
