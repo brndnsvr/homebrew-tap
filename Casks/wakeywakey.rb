@@ -1,6 +1,6 @@
 cask "wakeywakey" do
-  version "1.2.0"
-  sha256 "c8bd199b57a49ecb5cd8e01958a9b18129325ada1e6135cc234e3a4831e409f1"
+  version "1.2.1"
+  sha256 "f5cb771cf0dda3dab40f3ba68f1ea54750353169b0b49d0a78c9ab14ce834357"
 
   url "https://github.com/brndnsvr/WakeyWakey/releases/download/v#{version}/WakeyWakey-#{version}.dmg"
   name "WakeyWakey"
