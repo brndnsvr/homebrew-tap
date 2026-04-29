@@ -1,6 +1,6 @@
 cask "voxwzrd" do
-  version "1.4.7"
-  sha256 "717f2f5e01986d63ae94e0b14d3bc6022650f6c6071455a7099df917921eed86"
+  version "1.4.8"
+  sha256 "9f9280b2b28cd79ac1101f56a3217c1520296633205219458249dee6e529cea1"
 
   url "https://github.com/brndnsvr/VoxWzrd-releases/releases/download/v#{version}/VoxWzrd-v#{version}.dmg"
   name "VoxWzrd"
