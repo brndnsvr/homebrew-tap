@@ -7,7 +7,7 @@ cask "wakeywakey" do
   desc "Menu bar app that keeps your Mac awake with subtle mouse movements"
   homepage "https://github.com/brndnsvr/WakeyWakey"
 
-  depends_on macos: ">= :sequoia"
+  depends_on macos: :sequoia
 
   app "WakeyWakey.app"
   binary "WakeyWakey.app/Contents/MacOS/wakey"
