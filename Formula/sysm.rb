@@ -5,16 +5,16 @@
 class Sysm < Formula
   desc "Unified CLI for Apple ecosystem integration on macOS"
   homepage "https://github.com/brndnsvr/sysm"
-  version "1.13.2"
-  url "https://github.com/brndnsvr/sysm/releases/download/v1.13.2/sysm-1.13.2-macos-arm64.tar.gz"
-  sha256 "252302e64c619d17b9438ed18490eafcc5c97109e020c82142c0045a9be190cb"
+  version "1.13.3"
+  url "https://github.com/brndnsvr/sysm/releases/download/v1.13.3/sysm-1.13.3-macos-arm64.tar.gz"
+  sha256 "a65ecf6e78399e0f6b4f0261f7440c9eb242280c7e36a9c0fbf5c264a4ea95a9"
   license "MIT"
 
   depends_on :macos
   depends_on arch: :arm64
 
   resource "claude-skill" do
-    url "https://github.com/brndnsvr/sysm/releases/download/v1.13.2/sysm.skill"
+    url "https://github.com/brndnsvr/sysm/releases/download/v1.13.3/sysm.skill"
     sha256 "1d672103aa88be95d7a1ac12d77d61425786ce7c0c927fd7f8fddb2f6e78ac5c"
   end
 
