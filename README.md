@@ -31,3 +31,13 @@ brew install --cask wakeywakey
 ```
 
 [More info](https://github.com/brndnsvr/WakeyWakey)
+
+### WzrdCheck
+
+Menu bar host monitor with a patient, decaying ICMP probe ladder.
+
+```bash
+brew install --cask wzrdcheck
+```
+
+[More info](https://github.com/brndnsvr/WzrdCheck)
