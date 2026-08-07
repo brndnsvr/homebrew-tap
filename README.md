@@ -38,6 +38,14 @@ brew install wzrd-vault
 
 ## Available Casks
 
+### MailWzrd
+
+Privacy-first AI email triage for Apple Mail with native MailKit and Ollama support. Requires macOS 15 (Sequoia) or later. Closed source; signed binaries are published via [MailWzrd-releases](https://github.com/brndnsvr/MailWzrd-releases).
+
+```bash
+brew install --cask mailwzrd
+```
+
 ### WakeyWakey
 
 Menu bar app that keeps your Mac awake with subtle mouse movements. Requires macOS 15 (Sequoia) or later. MIT licensed.
