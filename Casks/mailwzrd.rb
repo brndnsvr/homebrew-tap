@@ -1,6 +1,6 @@
 cask "mailwzrd" do
-  version "0.2.0"
-  sha256 "a08415e47002b1cb63e99b910bdb52832cacbdfaa0bde6140b0f83079f1e99b3"
+  version "0.2.1"
+  sha256 "e8786e164a2e84c4816a77521f282cb1377e2d45204983f32f55c4cf57667468"
 
   url "https://github.com/brndnsvr/MailWzrd-releases/releases/download/v#{version}/MailWzrd-v#{version}.dmg"
   name "MailWzrd"
