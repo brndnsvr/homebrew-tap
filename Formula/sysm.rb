@@ -10,7 +10,7 @@ class Sysm < Formula
   sha256 "5fceffa9ad71417f67e8ac78de746801c1915914d2240c9c7fa586333bf1ece2"
   license "MIT"
 
-  depends_on :macos
+  depends_on macos: :tahoe
   depends_on arch: :arm64
 
   resource "claude-skill" do
