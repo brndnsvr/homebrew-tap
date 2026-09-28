@@ -4,7 +4,7 @@ cask "wakeywakey" do
 
   url "https://github.com/brndnsvr/WakeyWakey/releases/download/v#{version}/WakeyWakey-#{version}.dmg"
   name "WakeyWakey"
-  desc "Menu bar app that keeps your Mac awake with subtle mouse movements"
+  desc "Menu bar app that keeps your Mac awake, with or without cursor movement"
   homepage "https://github.com/brndnsvr/WakeyWakey"
 
   depends_on macos: :sequoia
