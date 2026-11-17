@@ -66,6 +66,14 @@ brew install --cask wzrdcheck
 
 [More info](https://github.com/brndnsvr/WzrdCheck)
 
+### WzrdTerm
+
+Project-based terminal emulator with split panes and persistent sessions. Requires macOS 26 (Tahoe) or later. Closed source; signed binaries are published via [WzrdTerm-releases](https://github.com/brndnsvr/WzrdTerm-releases).
+
+```bash
+brew install --cask wzrdterm
+```
+
 ### VoxWzrd
 
 Meeting assistant — record, transcribe, and summarize with on-device AI. Closed source; binaries are published via [VoxWzrd-releases](https://github.com/brndnsvr/VoxWzrd-releases).
