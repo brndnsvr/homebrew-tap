@@ -46,6 +46,16 @@ Privacy-first AI email triage for Apple Mail with native MailKit and Ollama supp
 brew install --cask mailwzrd
 ```
 
+### SysMapWzrd
+
+Draw system and network diagrams with vector stencils and save them as self-contained documents. Requires macOS 26 (Tahoe) or later.
+
+```bash
+brew install --cask sysmapwzrd
+```
+
+[More info](https://github.com/brndnsvr/SysMapWzrd-releases)
+
 ### WakeyWakey
 
 Menu bar app that keeps your Mac awake with subtle mouse movements. Requires macOS 15 (Sequoia) or later. MIT licensed.
